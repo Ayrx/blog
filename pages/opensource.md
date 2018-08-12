@@ -9,7 +9,7 @@ interesting ones:
 
 # atriage
 
-[atriage](https://github.com/Ayrx/atriage) is a triage tool for fl-fuzz that
+[atriage](https://github.com/Ayrx/atriage) is a triage tool for afl-fuzz that
 is written in Python. It attempts to de-dupe crash cases and perform
 exploitability analysis.
 
