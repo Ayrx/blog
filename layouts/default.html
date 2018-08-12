@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  {% include "head.html" %}
+
+  <body>
+
+    <header id="content-header">
+      <div id="content-nav">
+	<ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About Me</a></li>
+	  <li><a href="/opensource.html">Open Source</a></li>
+	  <li><a href="/vulnerabilities.html">Vulnerabiity Research</a></li>
+      </div>
+    </header>
+
+    <div class="content-container">
+      {% block content %}{% endblock %}
+    </div>
+
+  </body>
+</html>

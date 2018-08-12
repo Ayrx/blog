@@ -1,0 +1,248 @@
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Basic styling
+ */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: #111;
+  background-color: #fdfdfd;
+  -webkit-text-size-adjust: 100%; }
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+.highlight {
+  margin-bottom: 15px; }
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle; }
+
+.center-image {
+   margin: 0 auto;
+   display: block; }
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: 30px; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0; }
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300; }
+
+/**
+ * Links
+ */
+a {
+  color: #2a7ae2;
+  text-decoration: none; }
+  a:visited {
+    color: #1756a9; }
+  a:hover {
+    color: #ffa500;
+    text-decoration: underline; }
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: #828282;
+  border-left: 4px solid #e8e8e8;
+  padding-left: 15px;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+/**
+ * Code formatting
+ */
+/* Code */
+code,
+pre {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  color: #bf616a;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f9f9f9;
+}
+pre code {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent;
+}
+
+/* Pygments */
+.highlight {
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+.highlight pre {
+  margin-bottom: 0;
+}
+
+/**
+ * Wrapper
+ */
+.content-container {
+  max-width: -webkit-calc(800px - (30px * 2));
+  max-width: calc(800px - (30px * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px;
+  padding-left: 30px; }
+  @media screen and (max-width: 800px) {
+    .wrapper {
+      max-width: -webkit-calc(800px - (30px));
+      max-width: calc(800px - (30px));
+      padding-right: 15px;
+      padding-left: 15px; } }
+
+/**
+ * Clearfix
+ */
+.wrapper:after, .footer-col-wrapper:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+#content-header {
+  padding: 16px;
+  overflow: hidden;
+  font-family: "colfax-web", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 18px }
+
+#content-nav ul {
+  margin: 22px 0 0;
+  text-align: center;
+  padding-left: 0 }
+
+#content-nav ul li {
+  display: inline;
+  margin-right: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em }
+
+#content-nav ul li:last-child {
+  margin-right: 0 }
+
+#content-nav li a {
+  color: #3a3a3a;
+  padding: 8px 0 }
+
+#content-nav a:hover {
+  color: #ffa500;
+  text-decoration: none; }
+
+@media screen and (max-width: 800px) {
+  #content-header {
+    padding: 1.125em 2em 1.125em 1.5em
+  }
+}
+
+/**
+ * Posts
+ */
+.title {
+  font-size: 34px;
+  letter-spacing: -1px;
+  line-height: 1; }
+  @media screen and (max-width: 800px) {
+    .post-title {
+      font-size: 34px; } }
+
+.page-title {
+  margin-top: 25px;
+  margin-bottom: 30px; }
+
+.post-title-group {
+  margin-top: 25px;
+  margin-bottom: 30px; }
+
+.post-listing {
+  margin-bottom: 5px; }
+
+h1 {
+  font-size: 26px;
+  margin-bottom: 0px; }
+
+.post {
+  margin-bottom: 30px; }
+  .post h2 {
+    font-size: 24px; }
+    @media screen and (max-width: 800px) {
+      .post-content h2 {
+        font-size: 24px; } }
+  .post h3 {
+    font-size: 22px; }
+    @media screen and (max-width: 800px) {
+      .post-content h3 {
+        font-size: 22px; } }
+  .post h4 {
+    font-size: 20px; }
+    @media screen and (max-width: 800px) {
+      .post-content h4 {
+        font-size: 20px; } }
+
+table {
+  display: table;
+  border: 1px solid #e5e5e5;
+  border-spacing: 2px;
+  border-collapse: collapse;
+  margin-bottom: 5px }
+
+td, th {
+  display: table-cell;
+  padding: 3px 6px;
+  border: 1px solid #e5e5e5; }
+
+#post-footer {
+  font-size: 15px;
+  font-style: italic; }
