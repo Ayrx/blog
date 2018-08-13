@@ -65,7 +65,7 @@ Once in a while I find security vulnerabilities. Here is a list:
         <td>CryptoNote</td>
         <td>Wallet Theft</td>
         <td><a href="/cryptonote-unauthenticated-json-rpc">
-	    cryptonote-unauthenticated-json-rpc
+	    https://www.ayrx.me/cryptonote-unauthenticated-json-rpc
         </a></td>
     </tr>
     <tr>
@@ -73,7 +73,7 @@ Once in a while I find security vulnerabilities. Here is a list:
         <td>Calibre E-book Manager</td>
         <td>Code Execution</td>
         <td><a href="/CVE-2018-7889">
-	    https://ayrx.me/CVE-2018-7889
+	    https://www.ayrx.me/CVE-2018-7889
         </a></td>
     </tr>
     <tr>
@@ -81,7 +81,7 @@ Once in a while I find security vulnerabilities. Here is a list:
         <td>Apache ORC</td>
         <td>Denial of Service</td>
         <td><a href="/CVE-2018-8015">
-	    https://ayrx.me/CVE-2018-8015
+	    https://www.ayrx.me/CVE-2018-8015
         </a></td>
     </tr>
 </table>
