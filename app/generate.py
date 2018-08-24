@@ -103,9 +103,26 @@ class CustomRenderer(mistune.Renderer):
 
         yield "</ul>\n"
 
+    def rfc_link(self, rfc_number):
+        return (
+            "<a href=\"https://tools.ietf.org/html/rfc{0}\">RFC{0}</a>"
+        ).format(rfc_number)
+
+
+class CustomLexer(mistune.InlineLexer):
+    def enable_rfc_link(self):
+        self.rules.rfc_link = re.compile(r"\[\[RFC([0-9]*)\]\]")
+        self.default_rules.insert(3, "rfc_link")
+
+    def output_rfc_link(self, m):
+        rfc_number = m.group(1)
+        return self.renderer.rfc_link(rfc_number)
+
 
 custom_renderer = CustomRenderer()
-ms_markdown = mistune.Markdown(renderer=custom_renderer)
+custom_lexer = CustomLexer(custom_renderer)
+custom_lexer.enable_rfc_link()
+ms_markdown = mistune.Markdown(renderer=custom_renderer, inline=custom_lexer)
 
 
 def render_post_html(markdown, post_title, post_date):

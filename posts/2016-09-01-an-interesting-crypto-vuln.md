@@ -13,7 +13,7 @@ happens and what conditions have to be met for this to work.
 
 ## 1. HMAC
 
-I quote from [RFC 2104 Section 2][rfc-quote].
+I quote from [[RFC2104]] Section 2.
 
 > The authentication key K can be of any length up to B, the block length of
 the hash function. Applications that use keys longer than B bytes will first
@@ -77,5 +77,3 @@ will not reuse passwords.
 
 So there you have it, a very unlikely set of circumstances that if fulfilled
 can potentially result in a very interesting vulnerability.
-
-[rfc-quote]: https://tools.ietf.org/html/rfc2104

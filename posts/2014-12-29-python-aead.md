@@ -33,8 +33,8 @@ from aead import AEAD
 ```
 
 The class takes requires an encryption key to be initialized. The key has to be
-32 bytes long and encoded with base64url as specified in RFC 4648. The library
-provides a `classmethod` to generate a suitable random key.
+32 bytes long and encoded with base64url as specified in [[RFC4648]]. The
+library provides a `classmethod` to generate a suitable random key.
 
 ```python
 cryptor = AEAD(AEAD.generate_key())

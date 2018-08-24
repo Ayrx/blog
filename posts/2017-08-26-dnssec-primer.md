@@ -4,10 +4,10 @@ title: A DNSSEC Primer
 ---
 
 DNSSEC is a hugely complex protocol. The current specification is defined in
-*three* RFCs: RFC [4033][rfc4033], [4034][rfc4034] and [4035][rfc4035]. This
-post will attempt to explain the core of the protocol and what is required to
-sign a DNS zone with DNSSEC. The process of validating DNSSEC records shall be
-left for a future post.
+*three* RFCs: [[RFC4033]], [[RFC4034]] and [[RFC4035]]. This post will attempt
+to explain the core of the protocol and what is required to sign a DNS zone
+with DNSSEC. The process of validating DNSSEC records shall be left for a
+future post.
 
 While there are arguments both for and against DNSSEC, this post will not
 take a side. It aims to be a strictly technical explanation on how DNSSEC
@@ -58,9 +58,8 @@ RRsets associated with the DNS name as well as point to the next authoritative
 name and are used to authenticate the denial of existence of a DNS record.
 Take the case of a DNS zone beginning at `example.com` with two subdomains,
 `alpha.example.com` and `omega.example.com`. The DNS names are sorted in
-canonical order (defined in [RFC 4034 Section 6][rfc4034-section6]) and we end
-up with the sorted list [`example.com`, `alpha.example.com`,
-`omega.example.com`].
+canonical order (defined in [[RFC4034]] Section 6]) and we end up with the
+sorted list [`example.com`, `alpha.example.com`, `omega.example.com`].
 
 `example.com` contains the following NSEC record:
 
@@ -133,8 +132,4 @@ shall be covered in a future post.
 
 *Shoutout to [@diagprov][diagprov-twitter] for reviewing this post!*
 
-[rfc4033]: https://tools.ietf.org/html/rfc4033
-[rfc4034]: https://tools.ietf.org/html/rfc4034
-[rfc4035]: https://tools.ietf.org/html/rfc4035
-[rfc4034-section6]: https://tools.ietf.org/html/rfc4034#section-6
 [diagprov-twitter]: https://twitter.com/diagprov
