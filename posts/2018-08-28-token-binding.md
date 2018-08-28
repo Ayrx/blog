@@ -128,9 +128,7 @@ cookie in the first place".
 4. MITM Attacks: Man-in-the-middle attacks can be used to steal cookies but
 will not provide access to the token binding key. However, MITM can be
 effectively negated by proper implementations of TLS which is already a
-requirement for Token Binding to work in the first place. As an aside, Token
-Binding has some interesting implications for MITM that we will take a closer
-look at later.
+requirement for Token Binding to work in the first place.
 
 The items in this list are an attempt to summarize the discussion from a very
 informative [Twitter thread][twitter] so big shoutout to everyone involved.
