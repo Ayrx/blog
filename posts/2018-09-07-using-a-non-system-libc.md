@@ -6,17 +6,22 @@ title: Using a non-system glibc
 When developing exploits, especially heap exploits, the glibc version the
 binary is linked against will affect the specific offsets that is used in the
 exploit code. Efforts like the [libc-database][libc-database] help by making it
-easy to look up memory addresses from a specific libc. When it comes to testing
-out the exploit, the most common approach is probably to build an isolated
-environment with the specific version of glibc with a tool like QEMU or Docker.
-This approach can be annoying since it takes time and effort to install all
-your tooling in the QEMU or Docker environment.
+easy to look up memory addresses from a specific libc. However, it is still
+useful to be able to test out an exploit against an older libc, especially
+since the older libc might not have specific heap mitigations that can make
+writing an exploit easier.
+
+The most common approach is probably to build an isolated environment with the
+specific version of glibc with a tool like QEMU or Docker. This approach can
+be annoying since it takes time and effort to install all your tooling in the
+QEMU or Docker environment.
 
 An alternative approach can be to rewrite the binary to link to a non-system
-libc. This is not as easy as simply setting something like `LD_LIBRARY_PATH`.
-With glibc, the path of the interpreter, `ld-linux.so.2` is  hardcoded into
-the binary at build time. The version of `ld-linux.so.2` MUST match `libc.so.6`
-or there will be errors when the binary is ran.
+libc on your host machine. This is not as easy as simply setting something
+like `LD_LIBRARY_PATH`. With glibc, the path of the interpreter,
+`ld-linux.so.2` is  hardcoded into the binary at build time. The version of
+`ld-linux.so.2` MUST match `libc.so.6` or there will be errors when the binary
+is ran.
 
 To use a non-system libc with a ELF binary, we must do two things:
 
