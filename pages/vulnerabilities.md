@@ -84,4 +84,12 @@ Once in a while I find security vulnerabilities. Here is a list:
 	    https://www.ayrx.me/CVE-2018-8015
         </a></td>
     </tr>
+    <tr>
+        <td>CVE-2018-8023</td>
+        <td>Apache Mesos</td>
+        <td>Timing Attack on JWT</td>
+        <td><a href="/CVE-2018-8023">
+	    https://www.ayrx.me/CVE-2018-8023
+        </a></td>
+    </tr>
 </table>
