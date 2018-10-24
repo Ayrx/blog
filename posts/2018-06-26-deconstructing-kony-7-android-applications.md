@@ -69,8 +69,8 @@ the ZIP archive.
 $ kony_decryptfile.exe <infile> <outfile> <app id> <package name> <timestamp>
 ```
 
-The `<package name>` parameter can be found in the `AndroidManifest.xml` file
-while the `<app id>` and `<timestamp>` parameters can be found in the
+The `package name` parameter can be found in the `AndroidManifest.xml` file
+while the `app id` and `timestamp` parameters can be found in the
 `assets/application.properties` file as the values of the `AppID` and `Var`
 keys respectively.
 
