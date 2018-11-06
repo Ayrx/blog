@@ -19,6 +19,9 @@ import shutil
 
 import re
 
+from xml.dom import minidom
+import xml.etree.ElementTree as ET
+
 
 env = Environment(loader=FileSystemLoader("layouts"))
 
@@ -235,3 +238,19 @@ def build_site():
     html = render_index_page(posts)
     with open("output/index.html", "w") as f:
         f.write(html)
+
+    rss = ET.Element("rss", version="2.0")
+    rss_channel = ET.SubElement(rss, "channel")
+    ET.SubElement(rss_channel, "title").text = "Ayrx's Blog"
+    ET.SubElement(rss_channel, "link").text = "https://www.ayrx.me"
+
+    for i in posts:
+        rss_item = ET.SubElement(rss_channel, "item")
+        ET.SubElement(rss_item, "title").text = i["title"]
+        ET.SubElement(
+            rss_item, "link").text = "https://www.ayrx.me/{}".format(i["url"])
+
+    doc = minidom.parseString(ET.tostring(rss))
+    doc.toprettyxml(encoding="utf-8")
+    with open("output/feed.xml", "wb") as f:
+        f.write(doc.toprettyxml(encoding="utf-8"))
