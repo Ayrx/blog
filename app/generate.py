@@ -242,6 +242,7 @@ def build_site():
     rss = ET.Element("rss", version="2.0")
     rss_channel = ET.SubElement(rss, "channel")
     ET.SubElement(rss_channel, "title").text = "Ayrx's Blog"
+    ET.SubElement(rss_channel, "description").text = "Information Security"
     ET.SubElement(rss_channel, "link").text = "https://www.ayrx.me"
 
     for i in posts:
