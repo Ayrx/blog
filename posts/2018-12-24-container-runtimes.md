@@ -171,7 +171,7 @@ gVisor kernel.
 In closing, we have looked at how the default Docker container runtime provides
 container isolation as well as how several promising alternative runtimes do
 things differently. This blog post only touch on each implementation _very_
-briefly. It is strong recommended that interested readers take a look at the
+briefly. It is strongly recommended that interested readers take a look at the
 documentation for each runtime. As the container ecosystem changes incredibly
 fast, it will not surprise me if some of the details here become inaccurate
 after a few months. It will be interesting to see which runtime "wins" in the
