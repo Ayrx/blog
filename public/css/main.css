@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 /**
  * Reset some basic elements
  */
@@ -11,7 +14,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Open Sans, sans-serif;
   font-size: 20px;
   line-height: 1.5;
   font-weight: 300;
@@ -87,7 +90,7 @@ blockquote {
 /* Code */
 code,
 pre {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-family: 'Fira Mono', monospace;
 }
 code {
   padding: .25em .5em;
