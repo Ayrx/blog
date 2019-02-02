@@ -147,7 +147,7 @@ Interceptor.attach(Module.findExportByName(null, "a"), {
 You will notice the following error message if you attempt to inject
 `mod.js` into the `test` process.
 
-```
+```shell
 ReferenceError: require is not defined
     at /repl1.js:4:19
 ```
@@ -194,7 +194,7 @@ value of `a` with our Interceptor's
 
 But! When we try injecting the compiled `mod.js` now we run into another error.
 
-```
+```shell
 Assertion failed: you need to wait for the runtime to be ready (e.g. wait for main() to be called)
 ```
 

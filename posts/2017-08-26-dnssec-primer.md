@@ -63,7 +63,7 @@ sorted list [`example.com`, `alpha.example.com`, `omega.example.com`].
 
 `example.com` contains the following NSEC record:
 
-```
+```shell
 example.com. 86400 IN NSEC alpha.example.com. (
 	A MX RRSIG NSEC )
 ```
@@ -73,7 +73,7 @@ with it and that the next authoritative name in the zone is `alpha.example.com`.
 
 `alpha.example.com` contains the following NSEC record:
 
-```
+```shell
 alpha.example.com. 86400 IN NSEC omega.example.com. (
 	A MX RRSIG NSEC )
 ```

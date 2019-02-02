@@ -585,7 +585,7 @@ You have successfully executed getflag on a target account
 
 For this level, we are told to check for world-readable files.
 
-```
+```shell
 level08@nebula:~$ ls -lah /home/flag08
 total 14K
 drwxr-x--- 2 flag08 level08   86 2012-08-19 03:07 .
@@ -1620,7 +1620,7 @@ level15@nebula:~$ /home/flag15/flag15
 To debug this error, we make a copy of the binary without the SUID bit set and
 run it with `LD_DEBUG`.
 
-```
+```shell
 level15@nebula:~$ cp /home/flag15/flag15 /home/level15/flag15
 level15@nebula:~$ LD_DEBUG=all /home/level15/flag15
 ... snip ...

@@ -14,7 +14,7 @@ data.
 To make up for that use case not being covered by Fernet, I have written and
 released on PyPI a library called `aead`. It can be installed with `pip`.
 
-```
+```shell
 $ pip install aead
 ```
 
