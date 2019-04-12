@@ -38,3 +38,4 @@ Once in a while I find security vulnerabilities. Here is a list:
 * Apache Mesos
 
   * <a href="/CVE-2018-8023">CVE-2018-8023</a>
+  * <a href="/CVE-2018-11793">CVE-2018-11793</a>
