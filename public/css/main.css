@@ -212,8 +212,23 @@ pre code {
   margin-top: 25px;
   margin-bottom: 30px; }
 
-.post-listing {
-  margin-bottom: 5px; }
+/**
+ * CSS for index page...
+ */
+.archive {
+  max-width: 100%;
+    }
+  .archive ol {
+    list-style-type: none; }
+  .archive li {
+    margin-bottom: 20px; }
+  .archive time {
+    float: left;
+    display: block;
+    margin-right: 48px; }
+  .archive span {
+    display: block;
+    overflow: hidden; }
 
 h1 {
   font-size: 26px;

@@ -2,15 +2,14 @@
 
 {% block content %}
 <h1 class="title page-title">Blog Posts</h1>
-<div class="posts">
-  {% for post in posts %}
-  <div class="post-listing">
-      <p>{{ post.date }}:
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-      </p>
+  <div class="archive">
+    <ol>
+    {% for post in posts %}
+      <li>
+        <time datetime="{{ post.date }}">{{ post.date }}</time>
+        <span><a href="{{ post.url }}">{{ post.title }}</a></span>
+      </li>
+    {% endfor %}
+    </ol>
   </div>
-  {% endfor %}
-</div>
 {% endblock %}
