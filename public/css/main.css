@@ -229,6 +229,10 @@ pre code {
   .archive span {
     display: block;
     overflow: hidden; }
+  .archive .header {
+    font-size: 24px;
+    border-bottom: solid #999;
+    border-bottom-width: 2px; }
 
 h1 {
   font-size: 26px;
