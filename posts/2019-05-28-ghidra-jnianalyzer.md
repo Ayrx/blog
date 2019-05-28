@@ -138,6 +138,25 @@ void Java_sg_vantagepoint_uncrackable3_MainActivity_init(JNIEnv *env,jobject thi
 }
 ```
 
+As a quick explanation on how the extension works, the script does the
+following:
+
+1. Imports the JNI data types from an archive parsed from
+[jni_all.h][jni_all.h].
+2. Parses the selected JSON file containing the function definitions.
+3. Iterates over all functions in the binary looking for those with names that
+begin with `Java_`.
+4. Based on the name, it looks up the corresponding function definition and
+apply it. For example, the native method
+`Java_sg_vantagepoint_uncrackable3_MainActivity_init` will be matched to the
+`init` method of the `sg.vantagepoint.uncrackable3.MainActivity` class.
+
+
+As the script assumes that all JNI functions have names that begin with
+`Java_`, it will miss functions that are loaded at runtime through
+`RegisterNatives` unless you first rename those functions to fit the expected
+naming convention.
+
 I have a few more potentially useful ideas to implement so I will probably
 update the extension in the near future. I hope someone else also finds this
 useful!
@@ -146,3 +165,4 @@ useful!
 [jadx]: https://github.com/skylot/jadx
 [FindNativeJNIMethods]: https://github.com/Ayrx/FindNativeJNIMethods
 [JNIAnalyzer]: https://github.com/Ayrx/ghidra_utils/tree/master/JNIAnalyzer
+[jni_all.h]: https://gist.github.com/Jinmo/048776db75067dcd6c57f1154e65b868
