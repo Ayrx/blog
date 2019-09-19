@@ -16,10 +16,6 @@ places you can find me at:
         <td><a href="https://github.com/Ayrx">github.com/Ayrx</a></td>
     </tr>
     <tr>
-        <td>Stackexchange</td>
-        <td><a href="https://security.stackexchange.com/users/10211/terry-chia">security.stackexchange.com/users/10211/terry-chia</a></td>
-    </tr>
-    <tr>
         <td>LinkedIn</td>
         <td><a href="https://www.linkedin.com/in/terry-chia-a0160056/">www.linkedin.com/in/terry-chia-a0160056/</a></td>
     </tr>
