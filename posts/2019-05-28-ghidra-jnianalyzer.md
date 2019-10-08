@@ -164,5 +164,5 @@ useful!
 [uncrackable-3]: https://github.com/OWASP/owasp-mstg/blob/master/Crackmes/Android/Level_03/UnCrackable-Level3.apk
 [jadx]: https://github.com/skylot/jadx
 [FindNativeJNIMethods]: https://github.com/Ayrx/FindNativeJNIMethods
-[JNIAnalyzer]: https://github.com/Ayrx/ghidra_utils/tree/master/JNIAnalyzer
+[JNIAnalyzer]: https://github.com/Ayrx/JNIAnalyzer
 [jni_all.h]: https://gist.github.com/Jinmo/048776db75067dcd6c57f1154e65b868
