@@ -28,7 +28,7 @@ env = Environment(loader=FileSystemLoader("layouts"))
 
 class CustomRenderer(mistune.Renderer):
     def codespan(self, text):
-        return "<code class=\"highlight\">{}</code>".format(text)
+        return "<code class=\"highlight2\">{}</code>".format(text)
 
     def link(self, link, title, content):
         if link.startswith("http://") or link.startswith("https://"):
