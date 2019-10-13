@@ -3,6 +3,10 @@ layout: post
 title: Deconstructing Kony (7) Android Applications
 ---
 
+_Note: A more complete writeup on Kony was published at [Analyzing Kony Mobile
+Applications][analyzing-kony]_
+
+
 # What is Kony?
 
 Kony is a mobile app development platform that allows a developer to build
@@ -149,5 +153,6 @@ $ file startup.js.zip
 startup.js.zip: Zip archive data, at least v1.0 to extract
 ```
 
+[analyzing-kony]: 2019-10-13-analyzing-kony-mobile-applications
 [kony-blackhat]: https://www.blackhat.com/docs/ldn-15/materials/london-15-Weedon-Deconstructing-Kony-Android-Apps.pdf
 [unluac]: http://hg.code.sf.net/p/unluac/hgcode
