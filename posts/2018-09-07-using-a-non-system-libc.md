@@ -96,4 +96,4 @@ the dynamic linker.
 [libc-database]: https://github.com/niklasb/libc-database
 [patchelf]: https://nixos.org/patchelf.html
 [lief]: https://lief.quarkslab.com
-[github-reutils]: https://github.com/Ayrx/reutils/blob/master/change_glibc
+[github-reutils]: https://github.com/Ayrx/reutils/blob/master/bin/change_glibc
