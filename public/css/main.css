@@ -271,3 +271,13 @@ td, th {
 #post-footer {
   font-size: 15px;
   font-style: italic; }
+
+.note {
+  background-color: #d3efff;
+  border-left: 6px solid #0288D1;
+  padding: 12px 12px 12px 32px;
+  margin-bottom: 20px;
+  margin-top: 20px; }
+
+  .note p {
+    margin-bottom: 5px; }

@@ -67,13 +67,17 @@ Ghidra also helpfully detects that the third parameter has the type of
 
 # Automation with the Ghidra API
 
-**Update 2020-04-12**
+<div class="note">
 
+<p>
+<b>Update: 2020-04-12</b>
+</p>
+<p>
 JNIAnalyzer now contains the APK parsing function originally implemented in
 FindNativeJNIMethods. The Ghidra extension will now ask for an APK file instead
 of the FindNativeJNIMethods JSON output.
-
-**End Update**
+</p>
+</div>
 
 Defining the data type for JNI functions manually is a tedious task that can be
 automated. As JNI functions will have a corresponding method in Java, we can
