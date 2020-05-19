@@ -3,8 +3,11 @@ layout: post
 title: Analyzing Kony Mobile Applications
 ---
 
-_Note: The content in this blog post was [presented][iic] at Infosec In The
-City 2019._
+<div class="note">
+The content in this blog post was
+<a href="https://www.infosec-city.org/sg19-1-kony">presented</a> at Infosec
+In The City 2019.
+</div>
 
 {:toc}
 
@@ -581,7 +584,6 @@ the research:
 * [Kony 2013 - A different kind of Android reversing][ncc-kony]
 * [Deconstructing Kony Android Applications (2015)][weedon-kony]
 
-[iic]: https://www.infosec-city.org/sg19-1-kony
 [kony]: https://www.kony.com/products/quantum/
 [findcrypt]: https://github.com/d3v1l401/FindCrypt-Ghidra
 [frida]: https://frida.re/
