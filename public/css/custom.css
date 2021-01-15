@@ -103,7 +103,7 @@ code {
 pre {
   display: block;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   padding: 1rem;
   font-size: 80%;
   line-height: 1.4;
@@ -123,3 +123,7 @@ pre code {
 .center-image {
    margin: 0 auto;
    display: block; }
+
+.post-title-group {
+  padding-bottom: 2rem;
+}
