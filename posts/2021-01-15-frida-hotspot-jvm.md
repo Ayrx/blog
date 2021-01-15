@@ -44,8 +44,8 @@ nm: /usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server/libjvm.so: no symbols
 
 The easiest way to obtain a JVM with symbols is by downloading a pre-built
 binary from the [AdoptOpenJDK][adoptopenjdk] project. By configuring the
-target program to use a JVM with symbols, Frida can then be used to instrument
-the program.
+target program to use a JVM with symbols, Frida can then be used for 
+instrumentation.
 
 ```
      ____
