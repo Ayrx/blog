@@ -7,7 +7,7 @@ authors = ["Terry Chia <terrycwk1994@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.6"
 mistune = "^0.8.4"
-PyYAML = "^5.3"
+PyYAML = "^5.4"
 Pygments = "^2.5"
 Jinja2 = "^2.11"
 arrow = "^0.15.5"
