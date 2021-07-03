@@ -13,11 +13,14 @@ Luckily, Binary Ninja ships the API documentation as HTML files  found at
 converted to Dash docsets with [doc2dash](https://github.com/hynek/doc2dash).
 
 ```bash
+cp -r /Applications/Binary\ Ninja.app/Contents/Resources/api-docs /tmp
+echo ".wy-nav-side {display: none;}.wy-nav-content-wrap {margin-left: 0;}" >> /tmp/api-docs/_static/css/theme.css
 doc2dash \
     --destination ~/Documents/Dash\ Docsets \
     --name "Binary Ninja" \
     --icon ~/Documents/Dash\ Docsets/binja-icon-180x180.png \
-    /Applications/Binary\ Ninja.app/Contents/Resources/api-docs
+    /tmp/api-docs
+rm -rf /tmp/api-docs
 ```
 
 The icon image was grabbed from the Binary Ninja [website](https://binary.ninja/ico/apple-icon-180x180.png).
