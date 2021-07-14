@@ -5,7 +5,7 @@ theme = "zola-pickles"
 
 title = "Ayrx's Blog"
 
-description = "The description of your blog."
+description = "Ayrx's Blog"
 
 generate_feed = true
 
