@@ -68,7 +68,7 @@ Run a netcat listener to await for a reverse shell callback:
 nc -nlvp 4242
 ```
 
-## sysCMD command injection
+## sysCMD command injection (CVE-2021-36706)
 
 The `set_sys_cmd` function in the `adm.cgi` binary, accessible with a
 `page` parameter value of `sysCMD` contains a trivial command injection where
@@ -87,7 +87,7 @@ int32_t set_sys_cmd(char* params)
 00402044  return fd
 ```
 
-## ledonoff command injection
+## ledonoff command injection (CVE-2021-36707)
 
 The `set_ledonoff` function in the `adm.cgi` binary, accessible with a
 `page` parameter value of `ledonoff` contains a trivial command injection where
@@ -102,7 +102,7 @@ int32_t set_ledonoff(char* params)
 
 `do_system` is a wrapper function that essentially calls out to `system`.
 
-## TR069 command injection
+## TR069 command injection (CVE-2021-36705)
 
 The `set_TR069` function in the `adm.cgi` binary, accessible with a
 `page` parameter value of `TR069` contains a trivial command injection where
@@ -124,7 +124,7 @@ int32_t set_TR069(char* params)
 00408ba8  system(&cmd)
 00408bf0  return do_system(0x416200)  {"easycwmpd &"}
 ```
-# sysinit password reset
+# sysinit password reset (CVE-2021-36708)
 
 The `set_sys_init` function in the `login.cgi` binary, accessible with a
 `page` parameter value of `sysinit` is used during the router setup process to
@@ -162,3 +162,4 @@ again.
 * 10 June 2021 - Vulnerability fixed by vendor.
 * 25 June 2021 - Updated firmware published at https://prolink2u.com/download/firmware-prc2402m/
 * 11 July 2021 - Published write up.
+* 6 August 2021 - MITRE assigned CVE IDs
