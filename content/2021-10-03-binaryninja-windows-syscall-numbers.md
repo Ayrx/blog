@@ -46,7 +46,7 @@ contains an excellent explanation for the readers that are interested.
 
 To extract the syscall number, Binary Ninja's LLIL API is used to find the
 `LLIL_SYSCALL` instruction. Once the instruction is found, the `get_reg_value`
-function is used to obtain the value of EAX at that point in the program's
+function is used to obtain the value of `EAX` at that point in the program's
 execution as understood by Binary Ninja's data flow analysis.
 
 ```python
