@@ -7,6 +7,8 @@ title = "Ayrx's Blog"
 
 description = "Ayrx's Blog"
 
+default_language = "en"
+
 generate_feed = true
 
 # Whether to automatically compile all Sass files in the sass directory
