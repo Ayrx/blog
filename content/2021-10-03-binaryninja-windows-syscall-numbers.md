@@ -27,7 +27,7 @@ with binaryninja.open_view("ntdll.dll") as bv:
     ]
 ```
 
-Syscall functions in a 64-bit `ntdll.dll` follows a very consistent pattern.
+Syscall functions in a 64-bit `ntdll.dll` follow a very consistent pattern.
 
 1. The value of `RCX` is moved to `R10`. This is because the Windows x64
 calling convention passes the first argument in the `RCX` register while the
