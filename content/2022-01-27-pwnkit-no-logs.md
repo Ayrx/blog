@@ -1,10 +1,10 @@
 ---
 layout: post
-title: PwnKit Exploit Without Logs (CVE-2022-4034)
+title: PwnKit Exploit Without Logs (CVE-2021-4034)
 ---
 
 This post describes an alternative method of exploiting
-[PwnKit (CVE-2022-4034)](https://www.qualys.com/2022/01/25/cve-2021-4034/pwnkit.txt)
+[PwnKit (CVE-2021-4034)](https://www.qualys.com/2022/01/25/cve-2021-4034/pwnkit.txt)
 from Qualys without leaving behind logs.
 
 The exploit method described in the Qualys advisory suggests triggering a call
