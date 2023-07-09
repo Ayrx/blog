@@ -34,7 +34,7 @@ Error: Java API only partially available; please file a bug. Missing: _ZN6Method
 ```
 
 This is because Frida requires the JVM contain symbols in order to locate
-specific functions required for instrumentation. The default JVM shopped with
+specific functions required for instrumentation. The default JVM shipped with
 most Linux distributions have symbols stripped.
 
 ```
